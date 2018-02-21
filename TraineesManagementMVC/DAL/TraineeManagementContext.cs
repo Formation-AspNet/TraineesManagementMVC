@@ -13,5 +13,7 @@
         }
 
         public virtual DbSet<Group> Groups { get; set; }
+        public virtual DbSet<Trainee> Trainees { get; set; }
+        
     }
 }
