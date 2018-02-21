@@ -39,6 +39,9 @@ namespace TraineesManagementMVC.Controllers
         // GET: Trainees/Create
         public ActionResult Create()
         {
+            // ViewBag.Groups = new SelectList(db.Groups, nameof(Group.Id), nameof(Group.Name));
+            ViewBag.Groups = db.Groups;
+
             return View();
         }
 
@@ -47,7 +50,7 @@ namespace TraineesManagementMVC.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FirstName,LastName")] Trainee trainee)
+        public ActionResult Create([Bind(Include = "Id,FirstName,LastName,GroupId")] Trainee trainee)
         {
             if (ModelState.IsValid)
             {
@@ -71,6 +74,9 @@ namespace TraineesManagementMVC.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewBag.Groups = db.Groups;
+
             return View(trainee);
         }
 
@@ -79,7 +85,7 @@ namespace TraineesManagementMVC.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName")] Trainee trainee)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,GroupId")] Trainee trainee)
         {
             if (ModelState.IsValid)
             {

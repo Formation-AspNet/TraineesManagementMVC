@@ -9,7 +9,7 @@ namespace TraineesManagementMVC.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
             ContextKey = "TraineesManagementMVC.DAL.TraineeManagementContext";
         }
 
